@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5em;
+    }
+
+    #quote-box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 600px;
+    }
+
+    #quote {
+      font-size: 1.5em;
+      font-style: italic;
+    }
+
+    #author {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      background-color: #fff;
+      color: #0072ff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Random Quote Generator ✨</h1>
+  <div id="quote-box">
+    <p id="quote">Click the button to get inspired!</p>
+    <p id="author"></p>
+  </div>
+  <button onclick="newQuote()">New Quote</button>
+
+  <script>
+    const quotes = [
+      { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+      { text: "Don’t let yesterday take up too much of today.", author: "Will Rogers" },
+      { text: "It’s not whether you get knocked down, it’s whether you get up.", author: "Vince Lombardi" },
+      { text: "If you can dream it, you can do it.", author: "Walt Disney" },
+      { text: "Success is not in what you have, but who you are.", author: "Bo Bennett" },
+      { text: "Act as if what you do makes a difference. It does.", author: "William James" }
+    ];
+
+    function newQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").textContent = `"${random.text}"`;
+      document.getElementById("author").textContent = `- ${random.author}`;
+    }
+  </script>
+</body>
+</html>
